@@ -2,14 +2,20 @@
 
 RESTful API using ASP.NET Core for task management with JWT authentication.
 
+> 🚧 **Development in Progress**  
+> This branch contains the latest features and ongoing developments.
+
 ## Features
 
-- User authentication with JWT
-- CRUD operations for tasks
-- Task tagging and status filtering
-- Automatic API documentation with Swagger
-- Dockerized setup for easy development and deployment
+- [ ] User authentication with JWT
 
+- [ ] CRUD operations for tasks
+
+- [ ] Task tagging and status filtering
+
+- [ ] Automatic API documentation with Swagger
+
+- [ ] Dockerized setup for easy development and deployment
 
 ## Technologies Used
 
@@ -20,7 +26,6 @@ RESTful API using ASP.NET Core for task management with JWT authentication.
 - Swagger / OpenAPI
 - Docker & Docker Compose
 
-
 ## Getting Started
 
 ### Prerequisites
@@ -28,10 +33,11 @@ RESTful API using ASP.NET Core for task management with JWT authentication.
 - .NET 8.0 SDK
 - Docker (optional)
 
-### Installation
+### Installation and Running Locally
 
 ```bash
 git clone https://github.com/your-username/api-to-do-dotnet.git
+git checkout develop
 cd api-to-do-dotnet
 dotnet restore
 dotnet run
@@ -44,7 +50,6 @@ docker-compose up --build
 ```
 
 API will be available at http://localhost:5000
-
 
 ## API Endpoints
 
@@ -66,22 +71,27 @@ API will be available at http://localhost:5000
 dotnet test
 ```
 
-## Deployment
+Test suites are being expanded and improved regularly.
 
-- Staging branch: `staging`
-- Production branch: `main`
+## Documentation
+
+- Swagger UI is available at `/swagger` to explore API endpoints interactively.
+
+## Deployment Plan
+
+- Code in this branch is regularly merged into `staging` after feature stabilizations and reviews.
+- Continuous Integration and automated tests ensure quality before merges.
 
 ## Contributing
 
-Please fork the repo and submit pull requests.
+Please fork the repo and submit pull requests against the `develop` branch.
 
 ## License
 
-This project is licensed under the MIT License.
+MIT License
 
 ## Contact
 
 Vinícius Maciel Leite  
-E-mail - viniciusmacielleite@gmail.com  
-GitHub Profile - [viniciusmleite](https://github.com/viniciusmleite)
-
+Email: viniciusmacielleite@gmail.com  
+GitHub: [viniciusmleite](https://github.com/viniciusmleite)
