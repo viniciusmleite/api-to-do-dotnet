@@ -82,13 +82,19 @@ jobs:
       with:
         service-id: ${{ secrets.RENDER_SERVICE_ID_STAGING }}
         api-key: ${{ secrets.RENDER_API_KEY }}
-        wait-for-success: true
         
     - name: Health check (Staging)
       run: |
         sleep 30
         curl -f ${{ secrets.STAGING_URL }}/health || curl -f ${{ secrets.STAGING_URL }}/swagger/index.html
       continue-on-error: true
+
+    - name: Notify staging deployment success
+      if: success()
+      run: |
+        echo "✅ Staging deployment successful!"
+        echo "API URL: ${{ secrets.STAGING_URL }}"
+        echo "Swagger: ${{ secrets.STAGING_URL }}/swagger"     
 
   deploy-production:
     needs: [test, security-scan]
@@ -104,7 +110,6 @@ jobs:
       with:
         service-id: ${{ secrets.RENDER_SERVICE_ID }}
         api-key: ${{ secrets.RENDER_API_KEY }}
-        wait-for-success: true
         
     - name: Health check (Production)
       run: |
@@ -112,7 +117,7 @@ jobs:
         curl -f ${{ secrets.PRODUCTION_URL }}/health || curl -f ${{ secrets.PRODUCTION_URL }}/swagger/index.html
       continue-on-error: true
       
-    - name: Notify deployment success
+    - name: Notify production deployment success
       if: success()
       run: |
         echo "🚀 Production deployment successful!"
