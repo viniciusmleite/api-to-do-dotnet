@@ -1,0 +1,94 @@
+name: 📋 Development Task
+description: Create a development task or technical work item
+title: "[Task]: "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Create a structured development task with clear acceptance criteria.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Task Category
+      description: What type of development work is this?
+      options:
+        - Backend Development
+        - Database Migration
+        - DevOps/Infrastructure
+        - Testing
+        - Documentation
+        - Code Refactoring
+        - Security Implementation
+        - Performance Optimization
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How urgent is this task?
+      options:
+        - Critical (Blocks other work)
+        - High (Should be done soon)
+        - Medium (Normal priority)
+        - Low (Can wait)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Description
+      description: Detailed description of what needs to be done
+      placeholder: Configure Entity Framework Core with PostgreSQL for production deployment
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Background Context
+      description: Why is this task needed? What's the current state?
+      placeholder: Currently using SQLite for development, need production-ready database setup
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Specific, testable criteria for task completion
+      placeholder: |
+        - [ ] Create Todo model with proper validation
+        - [ ] Add JWT authentication middleware
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Complexity Estimate
+      description: How complex is this task?
+      options:
+        - XS (< 2 hours)
+        - S (2-4 hours)
+        - M (4-8 hours)
+        - L (1-2 days)
+        - XL (2+ days)
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: What needs to be completed before this task?
+      placeholder: Requires completion of basic project setup (#1)
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Technical Notes
+      description: Any technical considerations, resources, or implementation notes
+      placeholder: Consider using connection pooling for performance

@@ -1,0 +1,101 @@
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior in the API
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please provide the following information to help us investigate.
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity Level
+      description: How severe is this bug?
+      options:
+        - Critical (System down/data loss)
+        - High (Core functionality broken)
+        - Medium (Feature partially broken)
+        - Low (Minor UI/UX issue)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: Clear description of what the bug is
+      placeholder: Describe what happened...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce the bug
+      placeholder: |
+        1. Send GET request to /api/todos
+        2. Include invalid token
+        3. Observe error response
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should have happened?
+      placeholder: Should return 401 Unauthorized with proper error message
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: Returns 500 Internal Server Error instead
+    validations:
+      required: true
+
+  - type: input
+    id: endpoint
+    attributes:
+      label: API Endpoint
+      description: Which endpoint is affected?
+      placeholder: "/api/todos"
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where did this occur?
+      options:
+        - Production
+        - Staging
+        - Development
+        - Local
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: API Version
+      description: Which version of the API?
+      placeholder: "v1.2.3"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs
+      description: Include relevant error logs or stack traces
+      render: text
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context, screenshots, or related issues
